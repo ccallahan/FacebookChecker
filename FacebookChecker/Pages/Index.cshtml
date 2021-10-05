@@ -1,0 +1,55 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Status";
+    string cfMsg;
+    string googMsg;
+    string ciscoMsg;
+    string httpMsg;
+    string msgrMsg;
+
+
+    if(Model.cfStatus == 11)
+    {
+        cfMsg = "Resolving";
+    }
+    else { cfMsg = "Not Resolving"; }
+
+    if (Model.googStatus == 12)
+    {
+        googMsg = "Resolving";
+    }
+    else { googMsg = "Not Resolving"; }
+
+    if (Model.ciscoStatus == 13)
+    {
+        ciscoMsg = "Resolving";
+    }
+    else { ciscoMsg = "Not Resolving"; }
+
+    if (Model.httpStatus == 200)
+    {
+        httpMsg = "Up";
+    }
+    else { httpMsg = "Down"; }
+
+    if (Model.msgrStatus == 200)
+    {
+        msgrMsg = "Up";
+    }
+    else { msgrMsg = "Down"; }
+}
+
+
+<div class="text-center">
+
+
+    <h1 class="display-4">@Model.StatusMsg</h1>
+    <p>@Model.StatusDescription</p>
+
+    <p>Facebook.com: @httpMsg</p>
+    <p>Messenger: @msgrMsg</p>
+    <p>CloudFlare DNS: @cfMsg</p>
+    <p>Google DNS: @googMsg</p>
+    <p>OpenDNS: @ciscoMsg</p>
+</div>
